@@ -1,0 +1,602 @@
+[
+  {
+    "name": "1060_A. Phone Numbers",
+    "solved": false,
+    "status": "CE",
+    "format_ok": false
+  },
+  {
+    "name": "1101_A. Minimum Integer",
+    "solved": false,
+    "status": "WA",
+    "format_ok": true
+  },
+  {
+    "name": "1398_A. Bad Triangle",
+    "solved": false,
+    "status": "WA",
+    "format_ok": true
+  },
+  {
+    "name": "1421_B. Putting Bricks in the Wall",
+    "solved": false,
+    "status": "WA",
+    "format_ok": false
+  },
+  {
+    "name": "143_A. Help Vasilisa the Wise 2",
+    "solved": false,
+    "status": "CE",
+    "format_ok": false
+  },
+  {
+    "name": "168_A. Wizards and Demonstration",
+    "solved": false,
+    "status": "CE",
+    "format_ok": false
+  },
+  {
+    "name": "20_B. Equation",
+    "solved": false,
+    "status": "CE",
+    "format_ok": true
+  },
+  {
+    "name": "260_B. Ancient Prophesy",
+    "solved": false,
+    "status": "CE",
+    "format_ok": false
+  },
+  {
+    "name": "284_B. Cows and Poker Game",
+    "solved": false,
+    "status": "WA",
+    "format_ok": true
+  },
+  {
+    "name": "309_B. Context Advertising",
+    "solved": false,
+    "status": "CE",
+    "format_ok": true
+  },
+  {
+    "name": "379_A. New Year Candles",
+    "solved": false,
+    "status": "WA",
+    "format_ok": true
+  },
+  {
+    "name": "44_B. Cola",
+    "solved": false,
+    "status": "WA",
+    "format_ok": false
+  },
+  {
+    "name": "519_B. A and B and Compilation Errors",
+    "solved": false,
+    "status": "WA",
+    "format_ok": true
+  },
+  {
+    "name": "615_A. Bulbs",
+    "solved": false,
+    "status": "CE",
+    "format_ok": false
+  },
+  {
+    "name": "663_A. Rebus",
+    "solved": false,
+    "status": "CE",
+    "format_ok": true
+  },
+  {
+    "name": "776_A. A Serial Killer",
+    "solved": false,
+    "status": "RE",
+    "format_ok": true
+  },
+  {
+    "name": "7_B. Memory Manager",
+    "solved": false,
+    "status": "CE",
+    "format_ok": true
+  },
+  {
+    "name": "868_A. Bark to Unlock",
+    "solved": false,
+    "status": "WA",
+    "format_ok": true
+  },
+  {
+    "name": "915_A. Garden",
+    "solved": false,
+    "status": "CE",
+    "format_ok": false
+  },
+  {
+    "name": "938_B. Run For Your Prize",
+    "solved": false,
+    "status": "CE",
+    "format_ok": false
+  },
+  {
+    "name": "963_B. Destruction of a Tree",
+    "solved": false,
+    "status": "CE",
+    "format_ok": false
+  },
+  {
+    "name": "1043_A. Elections",
+    "solved": false,
+    "status": "CE",
+    "format_ok": true
+  },
+  {
+    "name": "1155_A. Reverse a Substring",
+    "solved": false,
+    "status": "CE",
+    "format_ok": false
+  },
+  {
+    "name": "1236_A. Stones",
+    "solved": false,
+    "status": "WA",
+    "format_ok": true
+  },
+  {
+    "name": "1382_A. Common Subsequence",
+    "solved": false,
+    "status": "WA",
+    "format_ok": true
+  },
+  {
+    "name": "195_A. Let's Watch Football",
+    "solved": false,
+    "status": "WA",
+    "format_ok": true
+  },
+  {
+    "name": "219_A. k-String",
+    "solved": false,
+    "status": "CE",
+    "format_ok": true
+  },
+  {
+    "name": "268_A. Games",
+    "solved": false,
+    "status": "CE",
+    "format_ok": true
+  },
+  {
+    "name": "316_B2. EKG",
+    "solved": false,
+    "status": "CE",
+    "format_ok": true
+  },
+  {
+    "name": "339_A. Helpful Maths",
+    "solved": false,
+    "status": "WA",
+    "format_ok": true
+  },
+  {
+    "name": "385_A. Bear and Raspberry",
+    "solved": false,
+    "status": "CE",
+    "format_ok": false
+  },
+  {
+    "name": "433_A. Kitahara Haruki's Gift",
+    "solved": false,
+    "status": "CE",
+    "format_ok": true
+  },
+  {
+    "name": "478_A. Initial Bet",
+    "solved": true,
+    "status": "OK",
+    "format_ok": true
+  },
+  {
+    "name": "526_A. King of Thieves",
+    "solved": false,
+    "status": "WA",
+    "format_ok": true
+  },
+  {
+    "name": "551_B. ZgukistringZ",
+    "solved": false,
+    "status": "WA",
+    "format_ok": false
+  },
+  {
+    "name": "5_A. Chat Server's Outgoing Traffic",
+    "solved": false,
+    "status": "CE",
+    "format_ok": false
+  },
+  {
+    "name": "643_B. Bear and Two Paths",
+    "solved": false,
+    "status": "CE",
+    "format_ok": true
+  },
+  {
+    "name": "670_B. Game of Robots",
+    "solved": false,
+    "status": "WA",
+    "format_ok": true
+  },
+  {
+    "name": "737_A. Road to Cinema",
+    "solved": false,
+    "status": "CE",
+    "format_ok": false
+  },
+  {
+    "name": "784_B. Kids' Riddle",
+    "solved": false,
+    "status": "WA",
+    "format_ok": true
+  },
+  {
+    "name": "805_A. Fake NP",
+    "solved": false,
+    "status": "CE",
+    "format_ok": true
+  },
+  {
+    "name": "830_A. Office Keys",
+    "solved": false,
+    "status": "CE",
+    "format_ok": true
+  },
+  {
+    "name": "851_B. Arpa and an exam about geometry",
+    "solved": false,
+    "status": "WA",
+    "format_ok": false
+  },
+  {
+    "name": "977_B. Two-gram",
+    "solved": false,
+    "status": "WA",
+    "format_ok": true
+  },
+  {
+    "name": "1012_B. Chemical table",
+    "solved": false,
+    "status": "RE",
+    "format_ok": true
+  },
+  {
+    "name": "1037_B. Reach Median",
+    "solved": false,
+    "status": "CE",
+    "format_ok": true
+  },
+  {
+    "name": "1129_A2. Toy Train",
+    "solved": false,
+    "status": "CE",
+    "format_ok": true
+  },
+  {
+    "name": "1149_B. Three Religions",
+    "solved": false,
+    "status": "WA",
+    "format_ok": true
+  },
+  {
+    "name": "1189_A. Keanu Reeves",
+    "solved": false,
+    "status": "WA",
+    "format_ok": true
+  },
+  {
+    "name": "1208_A. XORinacci",
+    "solved": false,
+    "status": "TLE",
+    "format_ok": true
+  },
+  {
+    "name": "1227_A. Math Problem",
+    "solved": false,
+    "status": "CE",
+    "format_ok": true
+  },
+  {
+    "name": "1269_B. Modulo Equality",
+    "solved": false,
+    "status": "CE",
+    "format_ok": true
+  },
+  {
+    "name": "1291_B. Array Sharpening",
+    "solved": false,
+    "status": "WA",
+    "format_ok": true
+  },
+  {
+    "name": "1334_A. Level Statistics",
+    "solved": false,
+    "status": "CE",
+    "format_ok": false
+  },
+  {
+    "name": "1374_B. Multiply by 2, divide by 6",
+    "solved": false,
+    "status": "CE",
+    "format_ok": true
+  },
+  {
+    "name": "209_B. Pixels",
+    "solved": false,
+    "status": "CE",
+    "format_ok": false
+  },
+  {
+    "name": "235_A. LCM Challenge",
+    "solved": false,
+    "status": "CE",
+    "format_ok": true
+  },
+  {
+    "name": "354_B. Game with Strings",
+    "solved": false,
+    "status": "WA",
+    "format_ok": true
+  },
+  {
+    "name": "425_A. Sereja and Swaps",
+    "solved": false,
+    "status": "CE",
+    "format_ok": false
+  },
+  {
+    "name": "494_A. Treasure",
+    "solved": false,
+    "status": "WA",
+    "format_ok": true
+  },
+  {
+    "name": "571_B. Minimization",
+    "solved": false,
+    "status": "CE",
+    "format_ok": true
+  },
+  {
+    "name": "687_A. NP-Hard Problem",
+    "solved": false,
+    "status": "RE",
+    "format_ok": true
+  },
+  {
+    "name": "754_B. Ilya and tic-tac-toe game",
+    "solved": false,
+    "status": "WA",
+    "format_ok": true
+  },
+  {
+    "name": "820_A. Mister B and Book Reading",
+    "solved": false,
+    "status": "WA",
+    "format_ok": true
+  },
+  {
+    "name": "846_B. Math Show",
+    "solved": false,
+    "status": "CE",
+    "format_ok": true
+  },
+  {
+    "name": "893_A. Chess For Three",
+    "solved": false,
+    "status": "CE",
+    "format_ok": true
+  },
+  {
+    "name": "990_B. Micro-World",
+    "solved": false,
+    "status": "CE",
+    "format_ok": true
+  },
+  {
+    "name": "1144_B. Parity Alternated Deletions",
+    "solved": false,
+    "status": "CE",
+    "format_ok": false
+  },
+  {
+    "name": "1165_A. Remainder",
+    "solved": false,
+    "status": "WA",
+    "format_ok": true
+  },
+  {
+    "name": "1184_B3. The Doctor Meets Vader (Hard)",
+    "solved": false,
+    "status": "CE",
+    "format_ok": true
+  },
+  {
+    "name": "1264_A. Beautiful Regional Contest",
+    "solved": false,
+    "status": "CE",
+    "format_ok": false
+  },
+  {
+    "name": "147_B. Smile House",
+    "solved": false,
+    "status": "CE",
+    "format_ok": false
+  },
+  {
+    "name": "161_B. Discounts",
+    "solved": false,
+    "status": "CE",
+    "format_ok": false
+  },
+  {
+    "name": "252_B. Unsorting Array",
+    "solved": false,
+    "status": "WA",
+    "format_ok": true
+  },
+  {
+    "name": "348_A. Mafia",
+    "solved": false,
+    "status": "CE",
+    "format_ok": true
+  },
+  {
+    "name": "371_B. Fox Dividing Cheese",
+    "solved": false,
+    "status": "WA",
+    "format_ok": false
+  },
+  {
+    "name": "512_B. Fox And Jumping",
+    "solved": false,
+    "status": "CE",
+    "format_ok": false
+  },
+  {
+    "name": "609_B. The Best Gift",
+    "solved": false,
+    "status": "WA",
+    "format_ok": false
+  },
+  {
+    "name": "630_A. Again Twenty Five!",
+    "solved": false,
+    "status": "CE",
+    "format_ok": true
+  },
+  {
+    "name": "76_B. Mice",
+    "solved": false,
+    "status": "CE",
+    "format_ok": false
+  },
+  {
+    "name": "931_A. Friends Meeting",
+    "solved": false,
+    "status": "WA",
+    "format_ok": true
+  },
+  {
+    "name": "985_A. Chess Placing",
+    "solved": false,
+    "status": "CE",
+    "format_ok": true
+  },
+  {
+    "name": "1140_B. Good String",
+    "solved": false,
+    "status": "WA",
+    "format_ok": true
+  },
+  {
+    "name": "1281_B. Azamon Web Services",
+    "solved": false,
+    "status": "WA",
+    "format_ok": true
+  },
+  {
+    "name": "1301_B. Motarack's Birthday",
+    "solved": false,
+    "status": "CE",
+    "format_ok": true
+  },
+  {
+    "name": "1325_B. CopyCopyCopyCopyCopy",
+    "solved": false,
+    "status": "WA",
+    "format_ok": true
+  },
+  {
+    "name": "1344_A. Hilbert's Hotel",
+    "solved": false,
+    "status": "WA",
+    "format_ok": true
+  },
+  {
+    "name": "1366_A. Shovels and Swords",
+    "solved": false,
+    "status": "CE",
+    "format_ok": false
+  },
+  {
+    "name": "1386_A. Colors",
+    "solved": false,
+    "status": "CE",
+    "format_ok": false
+  },
+  {
+    "name": "1408_A. Circle Coloring",
+    "solved": false,
+    "status": "CE",
+    "format_ok": false
+  },
+  {
+    "name": "1500_B. Two chandeliers",
+    "solved": false,
+    "status": "WA",
+    "format_ok": true
+  },
+  {
+    "name": "157_A. Game Outcome",
+    "solved": false,
+    "status": "WA",
+    "format_ok": true
+  },
+  {
+    "name": "178_A1. Educational Game",
+    "solved": false,
+    "status": "RE",
+    "format_ok": false
+  },
+  {
+    "name": "19_B. Checkout Assistant",
+    "solved": false,
+    "status": "CE",
+    "format_ok": true
+  },
+  {
+    "name": "248_A. Cupboards",
+    "solved": false,
+    "status": "WA",
+    "format_ok": false
+  },
+  {
+    "name": "272_B. Dima and Sequence",
+    "solved": false,
+    "status": "CE",
+    "format_ok": true
+  },
+  {
+    "name": "319_B. Psychos in a Line",
+    "solved": false,
+    "status": "CE",
+    "format_ok": false
+  },
+  {
+    "name": "343_B. Alternating Current",
+    "solved": false,
+    "status": "WA",
+    "format_ok": true
+  },
+  {
+    "name": "40_B. Repaintings",
+    "solved": false,
+    "status": "CE",
+    "format_ok": false
+  },
+  {
+    "name": "438_A. The Child and Toy",
+    "solved": false,
+    "status": "CE",
+    "format_ok": false
+  }
+]

@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+
+# Models / training output (large, regenerable)
+*.bin
+*.safetensors
+*.pt
+*.ckpt
+checkpoints/
+outputs/
+lora_adapter/
+wandb/
+
+# HF cache
+.cache/
+hf_cache/
+
+# Secrets (never commit your HF token)
+*.env
+.env
+token.txt
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algoritmul - Tutore Român de Programare Competitivă</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- App Header -->
+  <header>
+    <div class="problem-selector-wrapper">
+      <label for="problemSelect" class="problem-label">Selectează Problema:</label>
+      <select id="problemSelect" class="problem-select">
+        <!-- Populated dynamically via JS -->
+      </select>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="main-container">
+    
+    <!-- Left Pane: Tutor Chat (38%) -->
+    <div class="panel tutor-panel">
+      <div class="chat-container">
+        <div class="chat-header">
+          <div class="chat-status">
+            <span class="status-dot"></span>
+            <span class="status-text">Tutore AI conectat • Mod Socratic</span>
+          </div>
+          <button id="resetChatBtn" class="reset-chat-btn">Resetează Conversația</button>
+        </div>
+        
+        <!-- Messages Area -->
+        <div id="chatMessages" class="chat-messages">
+          <!-- Bubbles added dynamically via JS -->
+        </div>
+        
+        <!-- Socratic Quick Action Buttons -->
+        <div class="tutor-actions">
+          <button id="hintBtn" class="action-btn btn-hint" title="Primește un indiciu fără rezolvare directă">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+            </svg>
+            Indiciu Treptat
+          </button>
+          
+          <button id="bugBtn" class="action-btn btn-bug" title="Analizează codul curent pentru a găsi probleme de logică">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+            Găsește Bug-ul
+          </button>
+          
+          <button id="complexityBtn" class="action-btn btn-complexity" title="Explică complexitatea timp și memorie a problemei sau codului">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            Explică Complexitatea
+          </button>
+        </div>
+        
+        <!-- Message Input -->
+        <div class="chat-input-wrapper">
+          <form id="chatInputForm" class="chat-input-form">
+            <input type="text" id="chatInput" class="chat-input" placeholder="Pune o întrebare despre problemă sau algoritm..." autocomplete="off">
+            <button type="submit" class="send-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Right Pane: Problem & Editor Workspace (62%) -->
+    <div class="panel workspace-panel">
+      
+      <!-- Workspace Tabs -->
+      <div class="workspace-tabs">
+        <button class="tab-btn active" data-tab="problem">Enunț Problemă</button>
+        <button class="tab-btn" data-tab="editor">Editor Cod</button>
+        <button class="tab-btn" data-tab="results">Rezultate Rulare</button>
+      </div>
+      
+      <!-- Workspace Content -->
+      <div class="workspace-content">
+        
+        <!-- Tab 1: Problem details -->
+        <div id="problemTab" class="tab-pane active">
+          <div class="problem-details">
+            <div class="problem-title-area">
+              <h2 id="problemTitle">#10 - Suma Cifrelor</h2>
+              <span id="difficultyBadge" class="difficulty-badge ușoară">Ușoară</span>
+            </div>
+            
+            <div style="margin-bottom: 1.25rem;">
+              <span id="problemTopic" class="problem-topic">Algoritmi Elementari</span>
+            </div>
+            
+            <!-- Limit Badges -->
+            <div class="limit-badges">
+              <div class="limit-badge" title="Timpul maxim acordat execuției">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Timp limită: <span id="timeLimitSpan">0.1s</span>
+              </div>
+              <div class="limit-badge" title="Memoria maximă acordată execuției">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-3v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                </svg>
+                Memorie limită: <span id="memoryLimitSpan">64MB</span>
+              </div>
+            </div>
+            
+            <!-- Description sections -->
+            <div class="problem-section">
+              <h3>
+                <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" style="display:inline-block; vertical-align:middle; margin-right:6px;"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                Cerință
+              </h3>
+              <p id="problemDesc">Se dă un număr natural n. Să se scrie un program care determină și afișează suma cifrelor sale.</p>
+            </div>
+            
+            <div class="problem-section">
+              <h3>
+                <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" style="display:inline-block; vertical-align:middle; margin-right:6px;"><path stroke-linecap="round" stroke-linejoin="round" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/></svg>
+                Date de Intrare
+              </h3>
+              <p id="inputFormatDesc">De la tastatură se citește numărul natural n.</p>
+            </div>
+            
+            <div class="problem-section">
+              <h3>
+                <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" style="display:inline-block; vertical-align:middle; margin-right:6px;"><path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h3"/></svg>
+                Date de Ieșire
+              </h3>
+              <p id="outputFormatDesc">Pe ecran se va afișa suma cifrelor lui n.</p>
+            </div>
+            
+            <div class="problem-section">
+              <h3>
+                <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" style="display:inline-block; vertical-align:middle; margin-right:6px;"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                Restricții și Precizări
+              </h3>
+              <p id="constraintsContent">0 &le; n &le; 2.000.000.000</p>
+            </div>
+            
+            <!-- Examples -->
+            <div class="problem-section">
+              <h3>
+                <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" style="display:inline-block; vertical-align:middle; margin-right:6px;"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 10h16M4 14h16M4 18h16"/></svg>
+                Exemple
+              </h3>
+              <div id="examplesList">
+                <!-- Example boxes rendered via JS -->
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Tab 2: Code Editor -->
+        <div id="editorTab" class="tab-pane">
+          <div class="editor-container">
+            
+            <!-- Toolbar -->
+            <div class="editor-toolbar">
+              <div class="editor-left">
+                <select id="langSelect" class="lang-select">
+                  <option value="cpp">C++ (GCC)</option>
+                  <option value="python">Python 3</option>
+                  <option value="java">Java 17</option>
+                </select>
+              </div>
+              <div class="editor-right">
+                <button id="resetCodeBtn" class="toolbar-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 7.89H18v3z" />
+                  </svg>
+                  Resetează cod
+                </button>
+              </div>
+            </div>
+            
+            <!-- Custom Code Editor -->
+            <div class="code-editor-area">
+              <div id="lineNumbers" class="line-numbers">
+                <!-- Numbers populated via JS -->
+              </div>
+              <textarea id="codeTextarea" class="editor-textarea" spellcheck="false" autocomplete="off"></textarea>
+            </div>
+            
+            <!-- Footer Actions -->
+            <div class="editor-footer">
+              <button id="runCodeBtn" class="btn btn-secondary">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Rulează Teste
+              </button>
+              
+              <button id="submitCodeBtn" class="btn btn-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                </svg>
+                Trimite Soluție
+              </button>
+            </div>
+            
+          </div>
+        </div>
+        
+        <!-- Tab 3: Run Results -->
+        <div id="resultsTab" class="tab-pane">
+          <div id="resultsConsole" class="console-results">
+            <div class="results-header">
+              <h3>Statut Evaluare</h3>
+              <span class="status-badge pending">Așteaptă rulare</span>
+            </div>
+            <div style="padding: 3rem; text-align: center; color: var(--text-dark); font-size: 0.95rem;">
+              Nu s-a efectuat nicio compilare. Scrie cod în editor și apasă pe butonul <strong>Rulează Teste</strong> din tabul anterior.
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      
+    </div>
+    
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

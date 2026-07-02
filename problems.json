@@ -1,0 +1,106 @@
+[
+  {
+    "id": "10",
+    "name": "Suma Cifrelor",
+    "difficulty": "Ușoară",
+    "topic": "Algoritmi Elementari",
+    "description": "Se dă un număr natural $n$. Să se scrie un program care determină și afișează suma cifrelor sale.",
+    "timeLimit": "0.1s",
+    "memoryLimit": "64MB",
+    "constraints": "$0 \\le n \\le 2.000.000.000$",
+    "inputFormat": "De la tastatură se citește numărul natural $n$.",
+    "outputFormat": "Pe ecran se va afișa suma cifrelor lui $n$.",
+    "examples": [
+      {
+        "input": "1234",
+        "output": "10",
+        "explanation": "Suma cifrelor numărului 1234 este 1 + 2 + 3 + 4 = 10."
+      },
+      {
+        "input": "0",
+        "output": "0",
+        "explanation": "Suma cifrelor lui 0 este 0."
+      }
+    ],
+    "templates": {
+      "cpp": "#include <iostream>\n\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    \n    // Scrie codul tău aici\n    \n    return 0;\n}",
+      "python": "# Citește n de la tastatură\nn = int(input())\n\n# Scrie codul tău aici\n",
+      "java": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        int n = scanner.nextInt();\n        \n        // Scrie codul tău aici\n    }\n}"
+    },
+    "hints": [
+      "Pentru a extrage cifrele unui număr de la dreapta la stânga, poți folosi operatorul modulo `% 10` pentru a lua ultima cifra și operatorul de împărțire întreagă `/ 10` (sau `// 10` în Python) pentru a o elimina la fiecare pas.",
+      "Vei avea nevoie de o structură repetitivă (de exemplu un `while` sau `cat timp`) care se execută cât timp numărul tău este mai mare decât 0. La fiecare pas, extragi ultima cifră, o adaugi la o variabilă de sumă (inițializată cu 0) și actualizezi numărul împărțindu-l la 10.",
+      "Atenție la cazul special în care $n = 0$! Dacă n este 0, programul tău trebuie să afișeze tot 0. Structura repetitivă `while (n > 0)` nu va rula niciodată pentru $n=0$, dar din fericire suma cifrelor fiind inițializată cu 0, rezultatul final va fi corect. Iată pseudocodul:\n\n```text\nsuma = 0\ncât_timp n > 0 execută\n    suma = suma + n % 10\n    n = n / 10\nsfârșit_cât_timp\nafișează suma\n```"
+    ],
+    "correctCode": {
+      "cpp": "#include <iostream>\nusing namespace std;\nint main() {\n    int n;\n    if (!(cin >> n)) return 0;\n    if (n == 0) {\n        cout << 0;\n        return 0;\n    }\n    int sum = 0;\n    while (n > 0) {\n        sum += n % 10;\n        n /= 10;\n    }\n    cout << sum;\n    return 0;\n}",
+      "python": "n = int(input())\nif n == 0:\n    print(0)\nelse:\n    sum_cif = 0\n    while n > 0:\n        sum_cif += n % 10\n        n //= 10\n    print(sum_cif)"
+    }
+  },
+  {
+    "id": "506",
+    "name": "Căutare Binară",
+    "difficulty": "Medie",
+    "topic": "Căutare și Sortare",
+    "description": "Se dă un vector cu $n$ elemente întregi, ordonate strict crescător, și $m$ valori de căutat. Pentru fiecare valoare de căutat, să se determine dacă se află sau nu în vector.",
+    "timeLimit": "0.5s",
+    "memoryLimit": "128MB",
+    "constraints": "$1 \\le n, m \\le 100.000$, elementele vectorului și valorile de căutat sunt în intervalul $[-1.000.000.000, 1.000.000.000]$.",
+    "inputFormat": "Programul citește de la tastatură numărul $n$, iar apoi cele $n$ elemente ale vectorului ordonat. Ulterior, se citește numărul $m$ și cele $m$ valori ce trebuie căutate.",
+    "outputFormat": "Se vor afișa pe ecran $m$ valori separate prin spațiu: `1` dacă elementul căutat se află în vector, respectiv `0` în caz contrar.",
+    "examples": [
+      {
+        "input": "5\n1 3 5 7 9\n3\n3 4 7",
+        "output": "1 0 1",
+        "explanation": "Valoarea 3 se află în vector (poziția 2, deci 1).\nValoarea 4 nu se află în vector (deci 0).\nValoarea 7 se află în vector (poziția 4, deci 1)."
+      }
+    ],
+    "templates": {
+      "cpp": "#include <iostream>\n#include <vector>\n\nusing namespace std;\n\nint main() {\n    // Optimizare citire\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n    \n    int n;\n    cin >> n;\n    vector<int> v(n);\n    for(int i = 0; i < n; i++) {\n        cin >> v[i];\n    }\n    \n    int m;\n    cin >> m;\n    // Scrie algoritmul de căutare binară aici\n    \n    return 0;\n}",
+      "python": "import sys\n\ndef main():\n    # Citire rapidă a tuturor datelor\n    input_data = sys.stdin.read().split()\n    if not input_data:\n        return\n    \n    n = int(input_data[0])\n    v = [int(x) for x in input_data[1:n+1]]\n    \n    m = int(input_data[n+1])\n    queries = [int(x) for x in input_data[n+2:]]\n    \n    # Scrie codul tău de căutare binară aici\n\nif __name__ == '__main__':\n    main()",
+      "java": "import java.io.BufferedReader;\nimport java.io.InputStreamReader;\nimport java.util.StringTokenizer;\n\npublic class Main {\n    public static void main(String[] args) throws Exception {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        // Scrie codul tău aici\n    }\n}"
+    },
+    "hints": [
+      "Deoarece vectorul este deja sortat, o căutare secvențială (liniară) $\\mathcal{O}(n)$ pentru fiecare query va dura în total $\\mathcal{O}(n \\times m)$ operații. Pentru $n, m = 100.000$, acest lucru înseamnă $10^{10}$ operații, ceea ce va depăși limita de timp de 0.5s. Trebuie să implementezi Căutarea Binară, care face doar $\\mathcal{O}(\\log n)$ operații per căutare.",
+      "Căutarea binară funcționează prin înjumătățirea intervalului de căutare. Menții doi indici: `stanga = 0` și `dreapta = n - 1`. Cât timp `stanga <= dreapta`, calculezi mijlocul `mijloc = (stanga + dreapta) / 2`. Dacă `v[mijloc]` este exact valoarea căutată $x$, te oprești și întorci `1`. Dacă `v[mijloc] < x`, înseamnă că elementul poate fi doar în partea dreaptă, deci muți `stanga = mijloc + 1`. Altfel, muți `dreapta = mijloc - 1`.",
+      "În C++, citirea rapidă este crucială pentru a evita TLE. Folosește `ios_base::sync_with_stdio(false); cin.tie(NULL);` la începutul funcției `main` și evită folosirea `endl` (folosește `\\n`). Iată structura funcției de căutare binară:\n\n```cpp\nbool cauta_binar(const vector<int>& v, int x) {\n    int st = 0, dr = v.size() - 1;\n    while (st <= dr) {\n        int mij = st + (dr - st) / 2;\n        if (v[mij] == x) return true;\n        if (v[mij] < x) st = mij + 1;\n        else dr = mij - 1;\n    }\n    return false;\n}\n```"
+    ],
+    "correctCode": {
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std; \n\nbool cauta(const vector<int>& v, int x) {\n    int st = 0, dr = v.size() - 1;\n    while (st <= dr) {\n        int mij = st + (dr - st) / 2;\n        if (v[mij] == x) return true;\n        if (v[mij] < x) st = mij + 1;\n        else dr = mij - 1;\n    }\n    return false;\n}\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n    int n;\n    if (!(cin >> n)) return 0;\n    vector<int> v(n);\n    for(int i = 0; i < n; i++) cin >> v[i];\n    int m;\n    if (!(cin >> m)) return 0;\n    for(int i = 0; i < m; i++) {\n        int val;\n        cin >> val;\n        if (cauta(v, val)) cout << 1 << \" \";\n        else cout << 0 << \" \";\n    }\n    return 0;\n}",
+      "python": "import sys\n\ndef cauta(v, x):\n    st, dr = 0, len(v) - 1\n    while st <= dr:\n        mij = (st + dr) // 2\n        if v[mij] == x:\n            return True\n        elif v[mij] < x:\n            st = mij + 1\n        else:\n            dr = mij - 1\n    return False\n\ndef main():\n    input_data = sys.stdin.read().split()\n    if not input_data:\n        return\n    n = int(input_data[0])\n    v = [int(x) for x in input_data[1:n+1]]\n    m = int(input_data[n+1])\n    queries = [int(x) for x in input_data[n+2:]]\n    res = []\n    for q in queries:\n        if cauta(v, q):\n            res.append(\"1\")\n        else:\n            res.append(\"0\")\n    print(\" \".join(res))\n\nif __name__ == '__main__':\n    main()"
+    }
+  },
+  {
+    "id": "539",
+    "name": "DFS - Componente Conexe",
+    "difficulty": "Dificilă",
+    "topic": "Teoria Grafurilor",
+    "description": "Se dă un graf neorientat cu $n$ vârfuri și $m$ muchii. Să se determine numărul de componente conexe ale grafului și să se afișeze vârfurile din fiecare componentă conexă.",
+    "timeLimit": "0.2s",
+    "memoryLimit": "64MB",
+    "constraints": "$1 \\le n \\le 10.000$, $1 \\le m \\le 20.000$. Vârfurile sunt numerotate de la $1$ la $n$.",
+    "inputFormat": "Fișierul de intrare conține pe prima linie numerele $n$ și $m$. Următoarele $m$ linii conțin câte două numere $x$ și $y$, reprezentând o muchie între vârfurile $x$ și $y$.",
+    "outputFormat": "Pe prima linie se va afișa numărul de componente conexe. Fiecare dintre următoarele linii va conține vârfurile unei componente conexe, ordonate crescător, separate prin spațiu.",
+    "examples": [
+      {
+        "input": "5 3\n1 2\n1 3\n4 5",
+        "output": "2\n1 2 3\n4 5",
+        "explanation": "Graful are 2 componente conexe:\nPrima componentă conține vârfurile {1, 2, 3}.\nA doua componentă conține vârfurile {4, 5}."
+      }
+    ],
+    "templates": {
+      "cpp": "#include <iostream>\n#include <vector>\n#include <algorithm>\n\nusing namespace std;\n\nint n, m;\nvector<vector<int>> adj;\nvector<bool> viz;\n\nvoid dfs(int nod, vector<int>& comp) {\n    // Scrie funcția DFS aici\n}\n\nint main() {\n    cin >> n >> m;\n    adj.resize(n + 1);\n    viz.resize(n + 1, false);\n    \n    for(int i = 0; i < m; i++) {\n        int u, v;\n        cin >> u >> v;\n        adj[u].push_back(v);\n        adj[v].push_back(u);\n    }\n    \n    // Scrie logica de determinare a componentelor conexe\n    \n    return 0;\n}",
+      "python": "import sys\n\n# Crește limita pentru recursivitate\nsys.setrecursionlimit(20000)\n\ndef dfs(nod, adj, viz, comp):\n    # Scrie funcția DFS aici\n    pass\n\ndef main():\n    # Scrie codul de citire și parcurgere aici\n    pass\n\nif __name__ == '__main__':\n    main()",
+      "java": "import java.io.BufferedReader;\nimport java.io.InputStreamReader;\nimport java.util.StringTokenizer;\n\npublic class Main {\n    public static void main(String[] args) throws Exception {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        // Scrie codul tău aici\n    }\n}"
+    },
+    "hints": [
+      "Pentru grafuri cu $N = 10.000$, folosirea unei matrice de adiacență de $10.000 \\times 10.000$ elemente ar consuma prea multă memorie (100 MB, depășind limita de 64MB) și timp la parcurgere. Trebuie să folosești liste de adiacență, reprezentate prin `vector<vector<int>> adj` în C++ sau o listă de liste în Python.",
+      "O componentă conexă este un subgraf în care există drum între oricare două vârfuri. Parcurgerea în adâncime (DFS) pornită dintr-un nod nevizitat va vizita toate nodurile din componenta sa conexă. Pentru a găsi toate componentele conexe, parcurgi toate nodurile de la $1$ la $n$. Dacă un nod $i$ nu este vizitat, înseamnă că am găsit o nouă componentă. Pornești un DFS din el, colectezi toate nodurile vizitate, le sortezi crescător, și le adaugi la lista finală.",
+      "Asigură-te că sortezi elementele din fiecare componentă conexă înainte de afișare. Iată algoritmul DFS simplificat:\n\n```cpp\nvoid dfs(int nod, vector<int>& comp) {\n    viz[nod] = true;\n    comp.push_back(nod);\n    for(int vecin : adj[nod]) {\n        if(!viz[vecin]) {\n            dfs(vecin, comp);\n        }\n    }\n}\n```"
+    ],
+    "correctCode": {
+      "cpp": "#include <iostream>\n#include <vector>\n#include <algorithm>\nusing namespace std; \n\nint n, m;\nvector<vector<int>> adj;\nvector<bool> viz;\n\nvoid dfs(int nod, vector<int>& comp) {\n    viz[nod] = true;\n    comp.push_back(nod);\n    for(int vec : adj[nod]) {\n        if (!viz[vec]) dfs(vec, comp);\n    }\n}\n\nint main() {\n    if (!(cin >> n >> m)) return 0;\n    adj.resize(n + 1);\n    viz.resize(n + 1, false);\n    for(int i = 0; i < m; i++) {\n        int u, v;\n        cin >> u >> v;\n        adj[u].push_back(v);\n        adj[v].push_back(u);\n    }\n    vector<vector<int>> comps;\n    for(int i = 1; i <= n; i++) {\n        if (!viz[i]) {\n            vector<int> comp;\n            dfs(i, comp);\n            sort(comp.begin(), comp.end());\n            comps.push_back(comp);\n        }\n    }\n    cout << comps.size() << \"\\n\";\n    for(auto& comp : comps) {\n        for(int nod : comp) cout << nod << \" \";\n        cout << \"\\n\";\n    }\n    return 0;\n}",
+      "python": "import sys\nsys.setrecursionlimit(30000)\n\ndef dfs(nod, adj, viz, comp):\n    viz[nod] = True\n    comp.append(nod)\n    for vecin in adj[nod]:\n        if not viz[vecin]:\n            dfs(vecin, adj, viz, comp)\n\ndef main():\n    input_data = sys.stdin.read().split()\n    if not input_data:\n        return\n    n = int(input_data[0])\n    m = int(input_data[1])\n    adj = [[] for _ in range(n + 1)]\n    idx = 2\n    for _ in range(m):\n        u = int(input_data[idx])\n        v = int(input_data[idx+1])\n        adj[u].append(v)\n        adj[v].append(u)\n        idx += 2\n    viz = [False] * (n + 1)\n    comps = []\n    for i in range(1, n + 1):\n        if not viz[i]:\n            comp = []\n            dfs(i, adj, viz, comp)\n            comp.sort()\n            comps.append(comp)\n    print(len(comps))\n    for comp in comps:\n        print(\" \".join(map(str, comp)))"
+    }
+  }
+]

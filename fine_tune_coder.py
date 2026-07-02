@@ -1,11 +1,11 @@
 import json, torch
 from datasets import Dataset
-from transformers import (AutoTokenizer, AutoModelForCausalLM,
+from transformers import (AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig,
                           TrainingArguments, Trainer, DataCollatorForSeq2Seq)
-from peft import LoraConfig, get_peft_model
+from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
 
-MODEL_ID = "Qwen/Qwen2.5-1.5B-Instruct"
-MAXLEN = 2048
+MODEL_ID = "Qwen/Qwen2.5-Coder-7B-Instruct"
+MAXLEN = 1024
 
 tok = AutoTokenizer.from_pretrained(MODEL_ID)
 if tok.pad_token is None:
@@ -22,8 +22,13 @@ def tokenize(ex):
 
 ds = ds.map(tokenize, remove_columns=ds.column_names)
 
-model = AutoModelForCausalLM.from_pretrained(MODEL_ID, torch_dtype=torch.bfloat16, device_map="cuda")
+bnb = BitsAndBytesConfig(
+    load_in_4bit=True, bnb_4bit_quant_type="nf4",
+    bnb_4bit_compute_dtype=torch.bfloat16, bnb_4bit_use_double_quant=True,
+)
+model = AutoModelForCausalLM.from_pretrained(MODEL_ID, quantization_config=bnb, device_map={"": 0})
 model.config.use_cache = False
+model = prepare_model_for_kbit_training(model, use_gradient_checkpointing=True)
 
 lora = LoraConfig(
     r=16, lora_alpha=32, lora_dropout=0.05, task_type="CAUSAL_LM",
@@ -36,7 +41,7 @@ args = TrainingArguments(
     output_dir="lora_out",
     per_device_train_batch_size=1,
     gradient_accumulation_steps=16,
-    num_train_epochs=3,
+    num_train_epochs=1,
     learning_rate=2e-4,
     warmup_ratio=0.03,
     lr_scheduler_type="cosine",
@@ -50,6 +55,6 @@ collator = DataCollatorForSeq2Seq(tok, padding=True, label_pad_token_id=-100)
 trainer = Trainer(model=model, args=args, train_dataset=ds, data_collator=collator)
 trainer.train()
 
-model.save_pretrained("qwen_cp_lora")
-tok.save_pretrained("qwen_cp_lora")
-print("Saved LoRA adapter to qwen_cp_lora/")
+model.save_pretrained("coder_cp_lora")
+tok.save_pretrained("coder_cp_lora")
+print("Saved LoRA adapter to coder_cp_lora/")

@@ -465,38 +465,50 @@ function handleUserChatMessage() {
 
   // Generate Tutor Socratic response
   showTypingIndicator();
-  setTimeout(async () => {
-    hideTypingIndicator();
+  (async () => {
     const currentCode = codeTextarea.value;
     const tutorResponse = await fetchTutorResponse(text, currentCode);
+    hideTypingIndicator();
     addMessageToStateAndDisplay('tutor', tutorResponse);
-  }, 1000 + Math.random() * 800);
+  })();
 }
 
-// Socratic API connection endpoint hook
+// Live connection to the local fine-tuned model via Ollama
+const MODEL_NAME = "qwen2.5-coder:7b-instruct";
+
 async function fetchTutorResponse(userPrompt, userCode) {
-  /*
-  // DUPĂ FINETUNING: Aici veți conecta frontend-ul direct la serverul vostru de model API!
+  const prob = problems[currentProblemIndex];
+  const system = "Ești un tutore socratic de programare competitivă și răspunzi în limba română. Nu oferi soluția completă gata scrisă. Oferă indicii treptate, pune întrebări care ghidează elevul, explică ideile și complexitatea. Fii concis și clar.";
+  const context = "Problema: " + prob.name +
+    "\nCerință: " + (prob.description || "") +
+    "\n\nCodul curent al elevului (" + (currentLanguage || "cpp") + "):\n" +
+    (userCode && userCode.trim() ? userCode : "(editor gol)");
   try {
-    const response = await fetch('YOUR_API_ENDPOINT/chat', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+    const res = await fetch("http://localhost:11434/api/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        problemId: problems[currentProblemIndex].id,
-        language: currentLanguage,
-        code: userCode,
-        message: userPrompt,
-        history: chatHistories[problems[currentProblemIndex].id]
+        model: MODEL_NAME,
+        stream: false,
+        options: { temperature: 0.3 },
+        messages: [
+          { role: "system", content: system },
+          { role: "user", content: context + "\n\nÎntrebarea elevului: " + userPrompt }
+        ]
       })
     });
-    const data = await response.json();
-    return data.reply;
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    const data = await res.json();
+    const reply = data.message && data.message.content ? data.message.content.trim() : "";
+    return reply || mockTutorResponse(userPrompt, userCode);
   } catch (error) {
-    console.error("API error: ", error);
+    console.warn("Model indisponibil, folosesc răspuns local:", error);
+    return mockTutorResponse(userPrompt, userCode);
   }
-  */
+}
 
-  // MOCK LOGIC FOR PROTOTYPE (Guides the user Socrates-style)
+// Offline fallback (used only if the model is not reachable)
+function mockTutorResponse(userPrompt, userCode) {
   const prob = problems[currentProblemIndex];
   const promptLower = userPrompt.toLowerCase();
   

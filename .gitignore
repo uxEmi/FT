@@ -11,6 +11,7 @@ env/
 *.safetensors
 *.pt
 *.ckpt
+*.zip
 checkpoints/
 outputs/
 lora_adapter/

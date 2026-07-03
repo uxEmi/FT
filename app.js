@@ -478,7 +478,7 @@ const MODEL_NAME = "qwen2.5-coder:7b-instruct";
 
 async function fetchTutorResponse(userPrompt, userCode) {
   const prob = problems[currentProblemIndex];
-  const system = "Ești un tutore socratic de programare competitivă și răspunzi în limba română. Nu oferi soluția completă gata scrisă. Oferă indicii treptate, pune întrebări care ghidează elevul, explică ideile și complexitatea. Fii concis și clar.";
+  const system = "Ești un asistent de programare competitivă. Dacă mesajul utilizatorului este un enunț de problemă sau cere rezolvarea unei probleme, răspunde DOAR cu o soluție C++ completă și corectă, care citește din stdin și scrie la stdout, într-un singur bloc ```cpp, fără explicații. Pentru orice altă întrebare (idei, complexitate, lămuriri), răspunde scurt în limba română, în text.";
   const context = "Problema: " + prob.name +
     "\nCerință: " + (prob.description || "") +
     "\n\nCodul curent al elevului (" + (currentLanguage || "cpp") + "):\n" +
